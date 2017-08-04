@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">LibRate</string>
+
+    <!-- Rate start -->
+    <string name="rate_dialog_title">We are working hard for a better\nuser experience.\nWe\'d greatly appreciate if you can\nrate us 5-stars.</string>
+    <string name="rate_dialog_feedback_title">Your feedback is important\n for us</string>
+    <string name="rate_dialog_feedback_checkbox1">It doesn\'t have enough functions</string>
+    <string name="rate_dialog_feedback_checkbox2">It\'s not easy to use</string>
+    <string name="rate_dialog_feedback_checkbox3">I don\'t like the design</string>
+    <string name="rate_dialog_feedback_edittext">Detail(100words)</string>
+    <string name="rate_dialog_feedback_close">CLOSE</string>
+    <string name="rate_dialog_feedback_ok">OK</string>
+    <string name="rate_dialog_5_stars_txt">LOVE IT</string>
+    <string name="rate_dialog_4_stars_txt">LIKE IT</string>
+    <string name="rate_dialog_3_stars_txt">IT\'S OK</string>
+    <string name="rate_dialog_2_stars_txt">DISLIKE IT</string>
+    <string name="rate_dialog_1_stars_txt">HATE IT</string>
+    <string name="rate_dialog_rate_title">Your 5-stars are better than all\n the money in the world!</string>
+    <string name="rate_dialog_rate_toast">Please touch stars to rate it.</string>
+    <string name="rate_dialog_rate_no_thanks">NO THANKS</string>
+    <string name="rate_dialog_rate_rate">RATE</string>
+    <string name="rate_dialog_rate_later">LATER</string>
+    <string name="rate_dialog_rate_point">The best we can get :)</string>
+    <string name="rate_dialog_googleplay">RATE ON GOOGLEPLAY</string>
+    <string name="rate_dialog_cancel">CANCEL</string>
+    <!-- Rate end -->
+</resources>

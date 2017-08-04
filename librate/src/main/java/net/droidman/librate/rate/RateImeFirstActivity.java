@@ -3,6 +3,7 @@ package net.droidman.librate.rate;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,7 +21,7 @@ import java.util.HashMap;
 /**
  * Created by zzl on 2016/5/6.
  */
-public class RateImeFirstActivity extends Activity {
+public class RateImeFirstActivity extends Activity implements View.OnClickListener {
 
     private LinearLayout rate_dialog_star_layout;
     private RelativeLayout rate_dialog_title_layout;
@@ -36,24 +37,39 @@ public class RateImeFirstActivity extends Activity {
     private TextView rate_dialog_later;
     private TextView rate_dialog_rate;
     private int currentNum = 0;
+
+
     private SharedRate sharedRate;
+    private View[] rateStars;
+    private int[] rateStrResIds = {R.string.rate_dialog_1_stars_txt, R.string.rate_dialog_2_stars_txt, R.string.rate_dialog_3_stars_txt, R.string.rate_dialog_4_stars_txt, R.string.rate_dialog_5_stars_txt};
+    private int lastClickIndex = -1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setFinishOnTouchOutside(false);
         sharedRate = new SharedRate(getApplicationContext());
         setContentView(R.layout.rate_dialog_1);
+
+
         rate_dialog_title_layout = (RelativeLayout) findViewById(R.id.rate_dialog_title_layout);
         rate_dialog_star_layout = (LinearLayout) findViewById(R.id.rate_dialog_star_layout);
         rate_dialog_title1 = (TextView) findViewById(R.id.rate_dialog_title1);
         rate_dialog_title2 = (TextView) findViewById(R.id.rate_dialog_title2);
         rate_dialog_star_1 = (TextView) findViewById(R.id.rate_dialog_star_1);
+        rate_dialog_star_1.setOnClickListener(this);
         rate_dialog_star_2 = (TextView) findViewById(R.id.rate_dialog_star_2);
+        rate_dialog_star_2.setOnClickListener(this);
         rate_dialog_star_3 = (TextView) findViewById(R.id.rate_dialog_star_3);
+        rate_dialog_star_3.setOnClickListener(this);
         rate_dialog_star_4 = (TextView) findViewById(R.id.rate_dialog_star_4);
+        rate_dialog_star_4.setOnClickListener(this);
         rate_dialog_star_5 = (TextView) findViewById(R.id.rate_dialog_star_5);
+        rate_dialog_star_5.setOnClickListener(this);
+        rateStars = new View[]{rate_dialog_star_1, rate_dialog_star_2, rate_dialog_star_3, rate_dialog_star_4, rate_dialog_star_5};
         rate_dialog_no_thanks = (TextView) findViewById(R.id.rate_dialog_no_thanks);
         rate_dialog_later = (TextView) findViewById(R.id.rate_dialog_later);
+        rate_dialog_later.setVisibility(getIntent().getBooleanExtra("hasLater", false) ? View.VISIBLE : View.GONE);
         rate_dialog_rate = (TextView) findViewById(R.id.rate_dialog_rate);
         rate_dialog_rate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,48 +120,49 @@ public class RateImeFirstActivity extends Activity {
             }
         });
 
-        rate_dialog_star_layout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                TouchX = event.getX();
-                Log.i("ddd", "TouchX=" + TouchX);
-
-                final float star_1_x = rate_dialog_star_1.getX();
-                final float star_2_x = rate_dialog_star_2.getX();
-                final float star_3_x = rate_dialog_star_3.getX();
-                final float star_4_x = rate_dialog_star_4.getX();
-                final float star_5_x = rate_dialog_star_5.getX();
-                Log.i("ddd", "star_1_x=" + star_1_x);
-                Log.i("ddd", "star_2_x=" + star_2_x);
-                Log.i("ddd", "star_3_x=" + star_3_x);
-                Log.i("ddd", "star_4_x=" + star_4_x);
-                Log.i("ddd", "star_5_x=" + star_5_x);
-
-                if (TouchX > star_1_x && TouchX < star_2_x) {
-                    setStars(1);
-                    currentNum = 1;
-                } else if (TouchX < star_3_x) {
-                    setStars(2);
-                    currentNum = 2;
-                } else if (TouchX < star_4_x) {
-                    setStars(3);
-                    currentNum = 3;
-                } else if (TouchX < star_5_x) {
-                    setStars(4);
-                    currentNum = 4;
-                } else {
-                    setStars(5);
-                    currentNum = 5;
-                }
-                return true;
-            }
-        });
+//        rate_dialog_star_layout.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                TouchX = event.getX();
+//                Log.i("ddd", "TouchX=" + TouchX);
+//
+//                final float star_1_x = rate_dialog_star_1.getX();
+//                final float star_2_x = rate_dialog_star_2.getX();
+//                final float star_3_x = rate_dialog_star_3.getX();
+//                final float star_4_x = rate_dialog_star_4.getX();
+//                final float star_5_x = rate_dialog_star_5.getX();
+//                Log.i("ddd", "star_1_x=" + star_1_x);
+//                Log.i("ddd", "star_2_x=" + star_2_x);
+//                Log.i("ddd", "star_3_x=" + star_3_x);
+//                Log.i("ddd", "star_4_x=" + star_4_x);
+//                Log.i("ddd", "star_5_x=" + star_5_x);
+//
+//                if (TouchX > star_1_x && TouchX < star_2_x) {
+//                    setStars(1);
+//                    currentNum = 1;
+//                } else if (TouchX < star_3_x) {
+//                    setStars(2);
+//                    currentNum = 2;
+//                } else if (TouchX < star_4_x) {
+//                    setStars(3);
+//                    currentNum = 3;
+//                } else if (TouchX < star_5_x) {
+//                    setStars(4);
+//                    currentNum = 4;
+//                } else {
+//                    setStars(5);
+//                    currentNum = 5;
+//                }
+//                return true;
+//            }
+//        });
         try {
 //            AnalyzeConstant.event(AnalyzeConstant.RATE_DIALOG_FIRST_SHOW);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     private void setStars(int starNum) {
         rate_dialog_title_layout.setBackgroundResource(R.drawable.rate_dialog_star_title_bg);
@@ -197,5 +214,34 @@ public class RateImeFirstActivity extends Activity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    @Override
+    public void onClick(View v) {
+        int i = 0;
+        if (v == rateStars[0]) {
+            i = 0;
+        } else if (v == rateStars[1]) {
+            i = 1;
+        } else if (v == rateStars[2]) {
+            i = 2;
+        } else if (v == rateStars[3]) {
+            i = 3;
+        } else if (v == rateStars[4]) {
+            i = 4;
+        }
+        if (i == lastClickIndex) {
+            return;
+        }
+        currentNum = i + 1;
+        rate_dialog_title2.setText(rateStrResIds[i]);
+        for (int j = 0; j < rateStars.length; j++) {
+            if (j <= i) {
+                rateStars[j].setBackgroundResource(R.drawable.rate_dialog_star_on);
+            } else {
+                rateStars[j].setBackgroundResource(R.drawable.rate_dialog_star_off);
+            }
+        }
+        lastClickIndex = i;
     }
 }

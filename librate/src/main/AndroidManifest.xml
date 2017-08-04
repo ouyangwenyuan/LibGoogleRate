@@ -8,10 +8,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         >
-        <activity android:name=".rate.RateImeFirstActivity"/>
-        <activity android:name=".rate.RateImeRateActivity"/>
-        <activity android:name=".rate.RateImeSecondActivity"/>
-        <activity android:name=".rate.RateImeFeedbackActivity"/>
+        <activity
+            android:name=".rate.RateImeFirstActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/DialogStyleBottom"
+            />
+        <activity
+            android:name=".rate.RateImeRateActivity"
+            android:theme="@style/DialogStyleBottom"/>
+        <activity
+            android:name=".rate.RateImeSecondActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/DialogStyleBottom"/>
+        <activity
+            android:name=".rate.RateImeFeedbackActivity"
+            android:theme="@style/DialogStyleBottom"/>
     </application>
 
 </manifest>

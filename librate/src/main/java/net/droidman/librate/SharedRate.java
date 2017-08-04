@@ -110,11 +110,9 @@ public class SharedRate {
                 setPianoRateDialogIsFirst(isShowFirst);
                 setPianoRateDialogHasRecord(true);
             }
-            if (isShowFirst) {
-                activity.startActivity(new Intent(activity, RateImeFirstActivity.class));
-            } else {
-                activity.startActivity(new Intent(activity, RateImeSecondActivity.class));
-            }
+            Intent intent = new Intent(activity, RateImeFirstActivity.class);
+            intent.putExtra("hasLater", isShowFirst);
+            activity.startActivity(intent);
         } else {
 //            Log.d(TAG,"checkRateApp, (!hasRated) && (count % 5 == 0)");
         }

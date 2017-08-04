@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/root_rate_dialog"
@@ -27,7 +27,7 @@
                 android:gravity="center"
                 android:text="@string/rate_dialog_feedback_title"
                 android:textColor="@android:color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
 
         </RelativeLayout>
 
@@ -49,7 +49,8 @@
                     style="@style/RateDialogCheckboxTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp" />
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -57,7 +58,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="@string/rate_dialog_feedback_checkbox1"
                     android:textColor="#757575"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -72,7 +73,8 @@
                     style="@style/RateDialogCheckboxTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp" />
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,7 +82,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="@string/rate_dialog_feedback_checkbox2"
                     android:textColor="#757575"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -95,7 +97,8 @@
                     style="@style/RateDialogCheckboxTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp" />
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -103,17 +106,18 @@
                     android:layout_marginLeft="10dp"
                     android:text="@string/rate_dialog_feedback_checkbox3"
                     android:textColor="#757575"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
+                android:layout_marginRight="12dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/rate_dialog_feedback_edittext"
                 android:textColor="#757575"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
             <EditText
                 android:id="@+id/rate_dialog_feedback_edittext"
@@ -127,7 +131,7 @@
                 android:maxLength="500"
                 android:padding="5dp"
                 android:textColor="#757575"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -141,20 +145,23 @@
                     android:id="@+id/rate_dialog_close"
                     android:layout_width="75dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
                     android:background="@drawable/rate_dialog_no_thanks_button_bg"
                     android:gravity="center"
                     android:text="@string/rate_dialog_feedback_close"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"/>
 
                 <TextView
                     android:id="@+id/rate_dialog_ok"
                     android:layout_width="75dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/rate_dialog_rate_button_bg"
                     android:gravity="center"
                     android:text="@string/rate_dialog_feedback_ok"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

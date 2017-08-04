@@ -1,0 +1,2 @@
+# LibGoogleRate
+google rate
